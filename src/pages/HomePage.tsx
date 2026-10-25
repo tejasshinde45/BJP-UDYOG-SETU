@@ -255,7 +255,7 @@ export const HomePage: React.FC = () => {
                       {language === 'en' ? 'Leadership Vision' : 'मार्गदर्शक विचार'}
                     </span>
                     <Link
-                      to="/meeting-request"
+                      to={`/meeting-request?leader=${leader.id}`}
                       className="text-[#E35914] font-bold hover:underline inline-flex items-center gap-1 group/btn"
                     >
                       <span>{language === 'en' ? 'Meeting Request' : 'भेट विनंती'}</span>

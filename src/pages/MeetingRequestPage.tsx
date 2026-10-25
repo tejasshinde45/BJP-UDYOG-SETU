@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../hooks/useLanguage';
 import { useDemoData } from '../hooks/useDemoData';
 import { Breadcrumbs } from '../components/common/Breadcrumbs';
@@ -144,6 +145,8 @@ const meetingRequestCopy = {
 export const MeetingRequestPage: React.FC = () => {
   const { language, t } = useLanguage();
   const { addMeetingRequest, meetingRequests } = useDemoData();
+  const [searchParams] = useSearchParams();
+  const requestedLeaderId = searchParams.get('leader');
   const copy = meetingRequestCopy[language];
 
   const MAX_PURPOSE_CHARS = 500;
@@ -154,7 +157,6 @@ export const MeetingRequestPage: React.FC = () => {
   const [industrySector, setIndustrySector] = useState('');
   const [district, setDistrict] = useState('Pune');
 
-  const [preferredLeader, setPreferredLeader] = useState('Hon. Devendra Fadnavis (मा. देवेंद्र फडणवीस)');
   const [meetingPurpose, setMeetingPurpose] = useState('');
   const [preferredFormat, setPreferredFormat] = useState<'mumbai_delegation' | 'regional_conclave' | 'virtual_video'>('mumbai_delegation');
   const [supportingContext, setSupportingContext] = useState('');
@@ -225,6 +227,7 @@ export const MeetingRequestPage: React.FC = () => {
 
   const leadersList = [
     {
+      key: 'devendra-fadnavis',
       id: 'Hon. Devendra Fadnavis (मा. देवेंद्र फडणवीस)',
       name: 'मा. देवेंद्र फडणवीस',
       title: 'उपमुख्यमंत्री, महाराष्ट्र शासन',
@@ -232,6 +235,7 @@ export const MeetingRequestPage: React.FC = () => {
       focus: 'औद्योगिक पायाभूत सुविधा, ऊर्जा दर, थेट परकीय गुंतवणूक (FDI)',
     },
     {
+      key: 'narendra-modi',
       id: 'Hon. Narendra Modi (मा. नरेंद्र मोदी)',
       name: 'मा. नरेंद्र मोदी',
       title: 'पंतप्रधान, भारत सरकार',
@@ -239,6 +243,7 @@ export const MeetingRequestPage: React.FC = () => {
       focus: 'राष्ट्रीय उद्योग धोरण, आत्मनिर्भर भारत, ५ ट्रिलियन अर्थव्यवस्था',
     },
     {
+      key: 'ravindra-chavan',
       id: 'Hon. Ravindra Chavan (मा. रवींद्र चव्हाण)',
       name: 'मा. रवींद्र चव्हाण',
       title: 'कॅबिनेट मंत्री, महाराष्ट्र शासन',
@@ -251,6 +256,10 @@ export const MeetingRequestPage: React.FC = () => {
     language === 'mr'
       ? leader
       : { ...leader, ...(leaderTranslations[leader.image]?.[language] ?? {}) }
+  );
+
+  const [preferredLeader, setPreferredLeader] = useState(() =>
+    leadersList.find((leader) => leader.key === requestedLeaderId)?.id ?? leadersList[0].id
   );
 
   const maharashtraDistricts = [
@@ -427,7 +436,7 @@ export const MeetingRequestPage: React.FC = () => {
             className={`flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold transition ${pageMode === 'track' ? 'bg-[#136938] text-white shadow-sm' : 'text-[#475569] hover:bg-[#F8FAFC]'}`}
           >
             <Search className="h-4 w-4" />
-            {language === 'mr' ? 'विनंतीचा मागोवा घ्या' : 'Track a request'}
+            {language === 'mr' ? 'विनंतीची स्थिती' : 'Track a request'}
           </button>
         </div>
 
