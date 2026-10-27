@@ -433,7 +433,7 @@ export const MeetingRequestPage: React.FC = () => {
             type="button"
             aria-pressed={pageMode === 'track'}
             onClick={() => setPageMode('track')}
-            className={`flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold transition ${pageMode === 'track' ? 'bg-[#136938] text-white shadow-sm' : 'text-[#475569] hover:bg-[#F8FAFC]'}`}
+            className={`flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold transition ${pageMode === 'track' ? 'bg-[#E35914] text-white shadow-sm' : 'text-[#475569] hover:bg-[#F8FAFC]'}`}
           >
             <Search className="h-4 w-4" />
             {language === 'mr' ? 'विनंतीची स्थिती' : 'Track a request'}

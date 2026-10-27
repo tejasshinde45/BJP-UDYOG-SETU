@@ -10,6 +10,8 @@ import {
   ShieldAlert,
   ChevronDown,
   Phone,
+  ClipboardList,
+  UserPlus,
 } from 'lucide-react';
 
 export const Header: React.FC = () => {
@@ -190,16 +192,22 @@ export const Header: React.FC = () => {
         </nav>
 
         {/* Primary CTA Buttons */}
-        <div className="hidden sm:flex items-center gap-2.5 shrink-0">
-          <Link to="/track-complaint">
-            <Button variant="outlined" size="sm" className="hidden xl:inline-flex">
-              {t.nav.trackComplaint}
-            </Button>
+        <div className="hidden sm:flex items-center gap-2.5 shrink-0 header-action-slot">
+          <Link
+            to="/track-complaint"
+            className="group hidden xl:inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#CBD5E1] bg-white px-3 py-2 text-sm font-medium text-[#111827] shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#136938] focus-visible:ring-offset-2 header-action-button header-track-action"
+            aria-label={t.nav.trackComplaint}
+          >
+            <ClipboardList className="header-action-icon h-4 w-4 text-[#136938]" aria-hidden="true" />
+            <span className="header-action-label">{t.nav.trackComplaint}</span>
           </Link>
-          <Link to="/association-registration">
-            <Button variant="primary" size="md">
-              {t.nav.joinSetu}
-            </Button>
+          <Link
+            to="/association-registration"
+            className="group inline-flex items-center justify-center gap-2 rounded-lg border border-transparent bg-[#E35914] px-4 py-2.5 text-base font-medium text-white shadow-sm transition-colors hover:bg-[#CC4D0E] active:bg-[#B33E09] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E35914] focus-visible:ring-offset-2 header-action-button header-join-action"
+            aria-label={t.nav.joinSetu}
+          >
+            <UserPlus className="header-action-icon h-4 w-4 transition-transform group-hover:scale-110" aria-hidden="true" />
+            <span className="header-action-label">{t.nav.joinSetu}</span>
           </Link>
         </div>
 

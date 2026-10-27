@@ -139,3 +139,115 @@ body::-webkit-scrollbar {
 [class~="text-[13px]"] {
   font-size: 0.875rem;
 }
+
+.header-action-label {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.header-action-icon {
+  flex: none;
+}
+
+@media (hover: hover) and (min-width: 1280px) {
+  .header-action-slot {
+    width: 20rem;
+    justify-content: flex-end;
+  }
+
+  .header-action-button {
+    box-sizing: border-box;
+    display: inline-flex;
+    gap: 0;
+    width: max-content;
+    min-width: 2.75rem;
+    max-width: 20rem;
+    height: 2.75rem;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.375rem;
+    background-color: transparent;
+    border-color: #CBD5E1;
+    box-shadow: none;
+    transition:
+      gap 750ms cubic-bezier(0.16, 1, 0.3, 1),
+      padding 750ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-radius 750ms cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 280ms ease,
+      border-color 280ms ease,
+      box-shadow 280ms ease,
+      color 240ms ease;
+  }
+
+  .header-track-action {
+    color: #136938;
+  }
+
+  .header-join-action {
+    color: #E35914;
+  }
+
+  .header-action-label {
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-0.25rem);
+    transition:
+      max-width 750ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 380ms ease,
+      transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .header-action-button:hover,
+  .header-action-button:focus-visible {
+    gap: 0.5rem;
+    padding-inline: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .header-track-action:hover,
+  .header-track-action:focus-visible {
+    background-color: #F0FDF4;
+    border-color: #136938;
+    color: #111827;
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.08);
+  }
+
+  .header-track-action:active {
+    background-color: #DCFCE7;
+  }
+
+  .header-join-action:hover,
+  .header-join-action:focus-visible {
+    background-color: #E35914;
+    border-color: #CC4D0E;
+    color: #FFFFFF;
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.12);
+  }
+
+  .header-join-action:active {
+    background-color: #B33E09;
+    border-color: #B33E09;
+  }
+
+  .header-action-button:hover .header-action-label,
+  .header-action-button:focus-visible .header-action-label {
+    max-width: 16rem;
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0ms, 60ms, 0ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-action-button {
+    transition: none;
+  }
+
+  .header-action-label {
+    transition: none;
+  }
+}

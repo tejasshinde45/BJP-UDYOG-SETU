@@ -533,7 +533,7 @@ export const HomePage: React.FC = () => {
                     </span>
                   </div>
                   <Link to="/association-registration">
-                    <Button variant="green" size="sm">
+                    <Button variant="inverted" size="sm">
                       {language === 'mr'
                         ? 'संघटना नोंदणी करा'
                         : language === 'hi'
