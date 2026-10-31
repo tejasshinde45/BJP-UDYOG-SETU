@@ -285,7 +285,7 @@ export const UdyogSamvaadPage: React.FC = () => {
 
       {/* Registration Modal */}
       {isRegisterModalOpen && selectedEvent && (
-        <div className="fixed inset-0 z-50 bg-[#111827]/50 backdrop-blur-xs flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 bg-[#111827]/50 backdrop-blur-xs flex items-center justify-center p-4 modal-scroll-lock" data-lenis-prevent>
           <div className="bg-white rounded-2xl max-w-lg w-full border border-[#E2E8F0] shadow-xl p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setIsRegisterModalOpen(false)}

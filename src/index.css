@@ -71,17 +71,28 @@ body {
   }
 }
 
-html,
-body {
+*,
+*::before,
+*::after {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
   width: 0;
   height: 0;
+}
+
+html:has(.modal-scroll-lock),
+body:has(.modal-scroll-lock) {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.modal-scroll-lock > div {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 #root {

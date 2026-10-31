@@ -784,7 +784,7 @@ export const AdminDashboardPage: React.FC = () => {
 
         {/* MODAL 1: Grievance Detail & Management */}
         {selectedGrievance && (
-          <div className="fixed inset-0 z-50 bg-[#111827]/50 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 bg-[#111827]/50 backdrop-blur-xs flex items-center justify-center p-4 modal-scroll-lock" data-lenis-prevent>
             <div className="bg-white rounded-2xl max-w-2xl w-full border border-[#E2E8F0] shadow-xl p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
               <button
                 onClick={() => setSelectedGrievance(null)}
@@ -911,7 +911,7 @@ export const AdminDashboardPage: React.FC = () => {
 
         {/* MODAL 2: Meeting Request Review */}
         {selectedMeeting && (
-          <div className="fixed inset-0 z-50 bg-[#111827]/50 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 bg-[#111827]/50 backdrop-blur-xs flex items-center justify-center p-4 modal-scroll-lock" data-lenis-prevent>
             <div className="bg-white rounded-2xl max-w-lg w-full border border-[#E2E8F0] shadow-xl p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
               <button
                 onClick={() => setSelectedMeeting(null)}
@@ -991,7 +991,7 @@ export const AdminDashboardPage: React.FC = () => {
 
         {/* MODAL 3: Association Verification */}
         {selectedAssociation && (
-          <div className="fixed inset-0 z-50 bg-[#111827]/50 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 bg-[#111827]/50 backdrop-blur-xs flex items-center justify-center p-4 modal-scroll-lock" data-lenis-prevent>
             <div className="bg-white rounded-2xl max-w-lg w-full border border-[#E2E8F0] shadow-xl p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
               <button
                 onClick={() => setSelectedAssociation(null)}
