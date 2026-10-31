@@ -212,7 +212,7 @@ export const UdyogDarshanPage: React.FC = () => {
                       </Button>
 
                       <Button
-                        variant="green"
+                        variant="primary"
                         size="sm"
                         onClick={() => handleOpenRegisterFromDetails(visit)}
                       >

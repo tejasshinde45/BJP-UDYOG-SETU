@@ -419,12 +419,16 @@ export const MeetingRequestPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="inline-flex w-full sm:w-auto rounded-xl border border-[#E2E8F0] bg-white p-1.5 shadow-xs" role="group" aria-label="Meeting request options">
+        <div className="relative grid w-full max-w-[430px] grid-cols-2 rounded-xl border border-[#E2E8F0] bg-white p-1.5 shadow-xs" role="group" aria-label="Meeting request options">
+          <span
+            aria-hidden="true"
+            className={`pointer-events-none absolute inset-y-1.5 left-1.5 w-[calc(50%_-_0.375rem)] rounded-lg border shadow-sm transition-[transform,background-color,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${pageMode === 'track' ? 'translate-x-full border-[#E35914] bg-[#FFF7ED]' : 'translate-x-0 border-transparent bg-[#E35914]'}`}
+          />
           <button
             type="button"
             aria-pressed={pageMode === 'submit'}
             onClick={() => setPageMode('submit')}
-            className={`flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold transition ${pageMode === 'submit' ? 'bg-[#E35914] text-white shadow-sm' : 'text-[#475569] hover:bg-[#F8FAFC]'}`}
+            className={`relative z-10 inline-flex min-w-0 w-full items-center justify-center gap-2 rounded-lg px-2.5 sm:px-4 py-2.5 text-xs font-bold transition-colors duration-300 ${pageMode === 'submit' ? 'text-white' : 'text-[#475569] hover:text-[#111827]'}`}
           >
             <ClipboardList className="h-4 w-4" />
             {language === 'mr' ? 'भेट विनंती सादर करा' : 'Submit a request'}
@@ -433,7 +437,7 @@ export const MeetingRequestPage: React.FC = () => {
             type="button"
             aria-pressed={pageMode === 'track'}
             onClick={() => setPageMode('track')}
-            className={`flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold transition ${pageMode === 'track' ? 'bg-[#E35914] text-white shadow-sm' : 'text-[#475569] hover:bg-[#F8FAFC]'}`}
+            className={`relative z-10 inline-flex min-w-0 w-full items-center justify-center gap-2 rounded-lg px-2.5 sm:px-4 py-2.5 text-xs font-bold transition-colors duration-300 ${pageMode === 'track' ? 'text-[#C2410C]' : 'text-[#475569] hover:text-[#111827]'}`}
           >
             <Search className="h-4 w-4" />
             {language === 'mr' ? 'विनंतीची स्थिती' : 'Track a request'}
@@ -443,7 +447,10 @@ export const MeetingRequestPage: React.FC = () => {
         {/* 2-Column Master Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Main Column (9 Cols) */}
-          <div className="lg:col-span-9 space-y-6">
+          <div
+            key={pageMode}
+            className={`lg:col-span-9 space-y-6 ${pageMode === 'track' ? 'meeting-request-panel-enter-right' : 'meeting-request-panel-enter-left'}`}
+          >
             {pageMode === 'track' ? (
               <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-xs p-6 sm:p-8 space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">

@@ -95,6 +95,45 @@ body:has(.modal-scroll-lock) {
   -webkit-overflow-scrolling: touch;
 }
 
+@keyframes meeting-request-panel-enter-left {
+  from {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes meeting-request-panel-enter-right {
+  from {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.meeting-request-panel-enter-left {
+  animation: meeting-request-panel-enter-left 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.meeting-request-panel-enter-right {
+  animation: meeting-request-panel-enter-right 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meeting-request-panel-enter-left,
+  .meeting-request-panel-enter-right {
+    animation: none;
+  }
+}
+
 #root {
   min-height: 100vh;
   display: flex;
